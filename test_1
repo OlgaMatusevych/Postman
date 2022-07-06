@@ -1,0 +1,20 @@
+Создать запросы в Postman
+Protocol: http
+IP: 162.55.220.72
+Port: 5005
+Method: GET
+"name": "first"
+
+http://162.55.220.72:5005/first
+
+Статус код 200
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+PASS Status code is 200
+
+Проверить, что в body приходит правильный string
+pm.test("Correct type", function () {
+    pm.expect(pm.response.text()).to.eql("This is the first responce from server!");
+});
+PASS Correct type
