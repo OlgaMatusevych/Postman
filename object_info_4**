@@ -1,0 +1,8 @@
+Преобразовать пункты 12-13-14 (salary из реквеста и респонса равны) таким образом, чтобы проверка производилась циклом, в котором будет всего ОДИН тест. Имя теста должно меняться в зависимости от значения в Salaryconst respSalary = pm.response.json().salary
+
+сonst reqSalary = +pm.request.url.query.get('salary')
+respSalary.forEach((salary, index) => {
+    pm.test(`${reqSalary} * ${index+1} ==== ${salary}`, () => {
+        pm.expect(reqSalary*(index+1)).to.eql(+salary)
+    })
+})
